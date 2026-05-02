@@ -1,147 +1,210 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Memory Card Game</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Material Icon Link for Icons -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-<body>
-    <div class="wrapper">
-            <ul class="cards">
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-1.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-2.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-3.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-4.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-5.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-6.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-7.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-8.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-1.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-2.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-3.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-4.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-5.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-6.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-7.png" alt="card-img">
-                    </div>
-                </li>
-                <li class="card">
-                    <div class="view front-view">
-                        <span class="material-icons">question_mark</span>
-                    </div>
-                    <div class="view back-view">
-                        <img src="Images/img-8.png" alt="card-img">
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!-- MAIN GAME AREA -->
+    <div class="game-container">
+      <div class="game-header">
+        <p class="game-title">Memory Card Game</p>
+        <h1 class="good-luck">Good Luck!</h1>
 
-       <script src="script.js"></script>
-</body>
+        <div class="header-row">
+          <div class="timer-display" id="timer">00:00</div>
+          <button class="start-btn" id="startBtn">&#9654; Start Game</button>
+        </div>
+      </div>
+
+      <!-- The board that contains all 16 cards (8 pairs) -->
+      <div class="wrapper">
+        <ul class="cards">
+          <!-- CARD STRUCTURE (repeated 16 times) -->
+          <!-- Card 1 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-1.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 2 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-2.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 3 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-3.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 4 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-4.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 5 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-5.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 6 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-6.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 7 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-7.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 8 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-8.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Cards 9-16 are the DUPLICATE pair of each image above. -->
+
+          <!-- Card 9 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-1.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 10  -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-2.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 11 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-3.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 12 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-4.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 13 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-5.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 14 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-6.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 15 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-7.png" alt="card-img" />
+            </div>
+          </li>
+
+          <!-- Card 16 -->
+          <li class="card">
+            <div class="view front-view">
+              <span class="material-icons">question_mark</span>
+            </div>
+            <div class="view back-view">
+              <img src="Images/img-8.png" alt="card-img" />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WIN SCREEN -->
+    <div class="congrats-overlay" id="congratsOverlay">
+      <div class="congrats-box">
+        <div class="trophy">&#127942;</div>
+        <h2>Congratulations!</h2>
+        <p>You finished in<br /><span id="finalTime"></span></p>
+        <button class="play-again-btn" id="playAgainBtn">
+          &#8635; Play Again
+        </button>
+      </div>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="script.js"></script>
+  </body>
 </html>
